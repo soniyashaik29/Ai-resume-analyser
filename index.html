@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ResumeIQ — AI-powered resume analyzer with structured feedback to reach a perfect 10/10." />
+  <title>ResumeIQ · AI Resume Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== BACKGROUND LAYERS ===== -->
+  <div class="bg-canvas" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- ===== MAIN CARD ===== -->
+  <main class="analyzer-card" role="main">
+    <!-- Header -->
+    <header class="brand-row">
+      <div class="brand-logo">
+        <div class="logo-icon" aria-hidden="true">📄</div>
+        <div>
+          <h1>Resume<span class="accent">IQ</span></h1>
+          <div class="tagline">AI-Powered Resume Intelligence</div>
+        </div>
+      </div>
+      <span class="badge-beta">Beta</span>
+    </header>
+
+    <p class="subhead">
+      Upload your resume to receive instant, structured feedback on clarity, structure, and impact —
+      aligned with modern hiring standards. Get actionable steps to reach a <strong>10/10</strong>.
+    </p>
+
+    <!-- Upload Area -->
+    <section class="upload-area" id="dropZone" role="button" tabindex="0" aria-label="Upload resume">
+      <span class="upload-icon" aria-hidden="true">📎</span>
+      <div class="upload-label">Drag &amp; drop your resume, or click to browse</div>
+      <div class="upload-hint">PDF, DOCX, TXT · max 5 MB · text extracted securely</div>
+      <input
+        type="file"
+        id="fileInput"
+        accept=".pdf,.docx,.txt,.doc,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+      />
+      <div id="fileNameDisplay" class="file-name" style="display: none;"></div>
+    </section>
+
+    <!-- Analyze Button -->
+    <div class="btn-row">
+      <button class="btn" id="analyzeBtn" disabled>
+        <i aria-hidden="true">⚡</i> Analyze resume
+      </button>
+    </div>
+
+    <!-- Result Panel -->
+    <section class="result-panel" id="resultPanel" aria-live="polite">
+      <div class="placeholder-msg" id="placeholderMsg">
+        <span class="emoji" aria-hidden="true">✨</span>
+        Your detailed analysis will appear here.<br />Upload a resume to begin.
+      </div>
+
+      <div id="analysisContent" style="display: none;">
+        <div class="result-header">
+          <div class="score-badge">
+            <span class="label">AI Score</span>
+            <span class="score-value" id="overallScore">0</span>
+            <span class="score-max">/100</span>
+          </div>
+          <div class="word-badge">
+            <span aria-hidden="true">📝</span>
+            <span id="wordCountBadge">0 words</span>
+          </div>
+        </div>
+
+        <div class="metrics-grid" id="metricsGrid"></div>
+
+        <div>
+          <div class="insights-heading">
+            <span aria-hidden="true">🎯</span> Path to a Perfect 10/10
+          </div>
+          <ul class="insight-list" id="insightList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      Powered by simulated AI · Feedback based on modern resume best practices
+    </footer>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
